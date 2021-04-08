@@ -5,7 +5,8 @@
 
 
 class Budget:
-    def __init__(self,bal):
+    def __init__(self,name,bal):
+        self.name = name
         self.bal = bal
     def deposit(self,deposit):
         self.bal += deposit
@@ -34,9 +35,9 @@ class Budget:
 
 
 #instantiation
-Food = Budget(300)
-Clothing = Budget(200)
-Entertainment = Budget(500)
+Food = Budget("Food",300)
+Clothing = Budget("Clothing",200)
+Entertainment = Budget("Entertainment",500)
 
 
 # In[26]:
