@@ -1,0 +1,5 @@
+https://www.tutorialspoint.com/powershell/index.htm
+https://docs.microsoft.com/en-us/power-platform/admin/wp-task-automation-powershell#:~:text=With%20PowerShell%20you%20can%20sequentially,commands%20to%20automate%20common%20tasks.&text=Designed%20for%20app%20makers%20and,apps%2C%20flows%2C%20and%20connectors.
+https://www.scriptrunner.com/en/blog/using-powershell-scripts-for-automation/
+https://docs.microsoft.com/en-us/learn/paths/powershell/
+https://www.youtube.com/watch?v=UVUd9_k9C6A

@@ -1,0 +1,283 @@
+Artificial Intelligence in Action
+In recent years, AI has made commendable progress. From the first independent shopping cart that delivers your food products to AI-generated music, AI is everywhere.
+
+Globally, many organizations have started innovating a variety of tools and products that enhance business outcomes.
+
+TCS ignio™ is one such innovative cognitive automation solution.
+
+Digitate, a software venture of Tata Consultancy Services, won the Best Overall AI Company award from AI Breakthrough for 2019.
+
+The following levels mark the rise of AI.
+
+Narrow Intelligence
+It applies to specific tasks, for example, Alexa, Sophia and Alpha Go.
+General Intelligence
+Machines are capable of imitating human intelligence.
+Super Intelligence
+At this level, machines can surpass humans.
+
+Having had a glimpse of the evolution, you now know that AI has been here for more than half-a-century, so aren't you curious to find out why it is gaining importance now?
+
+More Data
+With social media coming into existence and with technology gaining momentum in all fields, data is getting generated at an n-measurable pace triggering the need for complex processing.
+
+Accurate Algorithms
+With data getting collected, now arises the need for algorithms that will perform accurate and quick computations.
+
+More Computation Power
+Much breakthrough has been made in the space of algorithms with the arrival of advanced machine and deep learning technologies. These algorithms mandate high computational power.
+
+AI ---> ANI (narrow intelligence) eg - smart speaker, self-driving car etc.
+---> AGI (general intelligence)
+
+Data Science refers to the activity of analyzing a large amount of data to extract knowledge and insight leading to actionable decisions.
+
+The main components in Data Science are, namely:
+
+Acquiring
+Cleaning
+Describing
+Exploratory Analysis
+Making predictions
+Suggesting recommendations
+
+Acquiring Data
+
+Acquire the raw data from a multitude of data sources, such as RDBMS and web pages.
+Cleaning Data
+
+Convert the raw data into a machine-readable format (enrich, detect/remove outliers, and apply business rules).
+Describing Data
+
+Summarize the data to get a holistic picture.
+Exploratory Analysis
+
+Explore and determine the patterns from the data. Visualize the data to unearth insights.
+Making Predictions
+
+Generalize the patterns in data to build models.
+
+Make predictions on unknown data.
+
+Suggesting Recommendations
+
+Now you are good to suggest recommendations.
+
+You have covered the components of Data Science in the previous cards.
+
+To implement the same in an industry context, you need knowledge on few open standards such as CRISP-DM (Cross-industry standard process for data mining).
+
+It has six phases, namely:
+
+Business understanding
+Data understanding
+Data preparation
+Modeling
+Evaluation
+Deployment
+
+Algorithm
+
+Algorithm is a set of rules and statistical techniques used to learn and derive insights from data patterns. e.g., Decision tree, Linear Regression, and Random Forest.
+
+ML Model
+
+ML model is a mathematical model trained by an algorithm to predict the patterns in the data.
+
+Predictor Variable
+
+Predictor variable is a variable used to predict another variable/output.
+
+Response Variable
+
+Response Variable is the target variable or the output variable that needs to be predicted.
+
+Training Data
+
+A model is built using training data.
+
+Testing Data
+
+Model is evaluated using testing data.
+
+Predictor vs Response Variable
+
+In the scenario where the height of the individual is predicted based on age, the predictor variable will be Age, and the response variable will be Height.
+
+Algorithm
+
+Algorithm is a set of rules and statistical techniques used to learn and derive insights from data patterns. e.g., Decision tree, Linear Regression, and Random Forest.
+
+ML Model
+
+ML model is a mathematical model trained by an algorithm to predict the patterns in the data.
+
+Predictor Variable
+
+Predictor variable is a variable used to predict another variable/output.
+
+Response Variable
+
+Response Variable is the target variable or the output variable that needs to be predicted.
+
+Training Data
+
+A model is built using training data.
+
+Testing Data
+
+Model is evaluated using testing data.
+
+Predictor vs Response Variable
+
+In the scenario where the height of the individual is predicted based on age, the predictor variable will be Age, and the response variable will be Height.
+
+Algorithm
+
+Algorithm is a set of rules and statistical techniques used to learn and derive insights from data patterns. e.g., Decision tree, Linear Regression, and Random Forest.
+
+ML Model
+
+ML model is a mathematical model trained by an algorithm to predict the patterns in the data.
+
+Predictor Variable
+
+Predictor variable is a variable used to predict another variable/output.
+
+Response Variable
+
+Response Variable is the target variable or the output variable that needs to be predicted.
+
+Training Data
+
+A model is built using training data.
+
+Testing Data
+
+Model is evaluated using testing data.
+
+Predictor vs Response Variable
+
+In the scenario where the height of the individual is predicted based on age, the predictor variable will be Age, and the response variable will be Height.
+
+The following questions will aid you in defining a problem:
+
+What kind of problem are you facing?
+How much or how many? (Regression)
+Which category? (Classification)
+Which group? (Clustering)
+Is this an outlier? (Anomaly detection)
+Which option to opt? (Recommendation)
+Once you have defined your problem, you need to strike the data science chord to get the data prepped up for further processing.
+
+This is an example of Reinforcement Learning, which is defined as,
+
+A part of Machine Learning where an agent is put in an environment where he learns to behave by performing actions that will either be rewarded or punished.
+
+AlphaGo is Google's AI Reinforcement Learning example.
+
+NLP - A machine’s ability to understand the human language by breaking it down, and then comprehend its meaning to determine the appropriate action, and respond in a language the user will understand.
+
+Machine First™ Approach
+Customer experience drives the digital world's business excellence. The omnipresence of digital technologies provides businesses and company leaders a myriad of options.
+
+Smart machines will help you to eliminate mundane steps by providing countless choices. Using these choices, you can make instant decisions that will enhance the customer experience.
+
+Hence, companies are moving in a direction where machines will be the first to carry out a variety of operations.
+
+
+TCS defines Machine First™ approach as,
+
+The Machine First™ approach allows technology the first right of refusal to sense, understand, decide, and respond in a robust networked environment equipped with analytics and AI, with the learning platform enabling superior quality information across the enterprise in real-time, all the time.
+
+The MFDM™ Framework helps organizations to deploy the defined approach seamlessly.
+
+MFDM™ Framework Constitutes
+Enterprise Intelligence Platform: Inputs from various sources are converted into a format that machines can read to make decisions.
+
+Enterprise Response Engine: It orchestrates the decided course of action.
+
+Collaboration Platform: It helps the machines to learn.
+
+MFDM™ describes a maturity model, which helps organizations to map incremental phases of maturity in the transformation journey to different levels, namely:
+
+Directed
+Assisted
+Collaborative
+Autonomous
+
+The different phases of execution model that ensure successful delivery using the Machine First™ approach are listed below.
+
+Discover
+Adapt
+Transform
+Discover
+The current state of the enterprise IT landscape is studied in detail and the target state, the machine first roadmap, the solution design for Enterprise Intelligence Platform and Enterprise Response Engine are defined.
+
+Adapt
+The Enterprise Intelligence Platform and the Enterprise Response Engine are established.
+
+Transform
+A multitude of automation capabilities are identified, continuously developed, and deployed using cognitive capabilities.
+
+Prominent AI products and platforms of TCS:
+
+ignio™
+
+Optumera™
+
+Advanced Drug Development Platforms
+
+TCS worked on developing a robust intelligent automation tool that is capable of mimicking the human thought process.
+
+ignio™
+
+ignio™ is a cognitive automation product for enterprise IT operations.
+It was launched in June 2015.
+It dynamically combines Machine Learning, Artificial Intelligence, and Automation.
+ignio™ as defined by TCS
+
+ignio™ is an open, extensible platform that is specifically designed to optimize your time while helping you make smart business decisions. The system is dynamic, and it assimilates additional capabilities as your IT ecosystem continues to grow.
+
+Key Features of ignio™
+Proactive
+
+ignio™ warns the user for any potential incident and thus empowers the user to take appropriate action.
+Agile
+
+ignio™ helps in automating repetitive tasks.
+It enhances productivity and end-user experience.
+It measures the system's health periodically to initiate corrective actions.
+It enables quick decisions and provides recommendations for better performance.
+Reliable
+
+ignio™ can identify probable causes and eventually recover from outages or incidents within seconds.
+Four Key Products
+Artificial Intelligence Operations (AI Ops)
+
+Intelligent automation (IA) on datacenter activities such as infrastructure and application operations.
+
+AI Digital Workspace
+
+Intelligent Automation on end-user devices such as desktops and mobile devices.
+
+AI Workload Management
+
+It manages batch operations.
+
+AI ERP Ops
+
+AI ERP Ops caters to key business processes that are implemented through systems like SAP.
+
+Numbers to Wonder
+Wondering what is possible with ignio™? Here are some numbers for you:
+
+ignio™ improves business availability through 80-90% reduction in operational risks and outages.
+It provides better end-user experience through 90% reduction in time to perform activities.
+It delivers a high ROI through 50-60% of reduction in effort and cost.
+
+
+TCS defines Optumera™ as
+
+Tata Consultancy Services' (TCS') Optumera suite is a next-generation merchandising solution that helps retailers reinvent their businesses by embracing the evolving consumer, technology and market trends, and implementing cutting-edge merchandising strategies – placing the shopper in the driver's seat.
+

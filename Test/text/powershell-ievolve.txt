@@ -1,0 +1,542 @@
+Install dependencies for Ubuntu 14.04.1
+>sudo apt-get install libunwind8 
+Download a PowerShell package for Ubuntu 14.04.1
+>wget https://github.com/PowerShell/PowerShell/releases/download/v6.0.0-alpha.9/powershell_6.0.0-alpha.9-1ubuntu1.14.04.1_amd64.deb
+Install PowerShell package
+>sudo dpkg -i powershell_6.0.0-alpha.9-1ubuntu1.14.04.1_amd64.deb
+Access PowerShell
+>PowerShell
+
+PowerShell Command Types
+Cmdlets
+
+Script commands
+
+Shell function commands
+
+Native or Alias commands
+
+Shell Function Commands
+Functions are a Named grouping of Windows PowerShell commands and expressions.
+Functions can have parameters and switches.
+They can take .NET objects as input and return .NET objects as output, just like cmdlets.
+They can be reused during that session.
+Command to view all PowerShell built-in Functions:
+
+>get-command -Type Function
+
+Custom Functions
+Windows PowerShell allows creating a Custom Functions that can be reused within PowerShell statements, simplifying the scripts.
+
+To create a function, Function name and Script block are required.
+
+Syntax:
+
+
+function [name] {script block}
+
+The script block contains the statements that run when the function is called.
+
+The Functions that we are creating is available for that session only.
+
+
+
+Custom Function Example
+Function Definition:
+
+function get-timeresult {
+    param ([int]$a,[int]$b)
+    $c=$a*$b
+    Write-Output $c
+    }
+To Run this function:
+
+get-timeresult -a 6 -b 8
+The Output will be 48
+
+Try this simple function on your PowerShell Console.
+
+Alias Commands
+Alias commands in PowerShell are Native Windows Command like, dir, cd, del, cls, etc. They can be created as an alternate name for the cmdlet to simplify command usage but these are session specific. They support Linux native commands as well.
+
+Why Alias Commands?
+
+Eases user’s transition from other shells to PowerShell.
+
+Enables concise code on Command Prompt.
+
+Example:
+
+To List Files in a Directory, DOS command "dir" can still be used in PowerShell. It internally invokes the cmdlet Get-ChildItem when dir command is typed on the console.
+
+Working with Alias Commands
+To find all the Alias Commands
+>Get-Command -Type Alias
+To find an equivalent Powershell cmdlet for "dir"
+>get-alias dir
+To discover all the aliases defined for the "'get-childitem"" cmdlet
+>get-alias –definition get-childitem
+Try these commands on your PowerShell console to see them working!
+
+
+Creating Custom Alias
+PowerShell allows the creation of custom Alias for PowerShell cmdlets and CMD commands. Such aliases can help simplify the administrative tasks.
+
+Examples:
+
+Create an Alias "PRO" for the cmdlet "Get-Process".
+>Set-Alias PRO get-process
+Create an Alias "NP" for "Notepad.exe"
+>Set-Alias NP notepad.exe
+Try these commands on your Windows workstation as well as on Ubuntu Playground to view the Output.
+
+
+Most Commonly used Cmdlets
+In PowerShell get-command and get-Help cmdlets are frequently used.
+
+get-command - lists all command in the PowerShell.
+
+get-help - displays information about various PowerShell commands including cmdlets, scripts, functions, etc.
+
+PowerShell has thousands of commands, and we will be covering just the popular ones in this course.
+
+Use PowerShell help to learn about the command and its usage.
+
+get-command
+get-command lists all commands supported by PowerShell on a given system. Usage:
+
+> get-command
+To know how many commands are in the system?
+
+>(get-command).count
+
+Using get-command
+get-command can be used in two ways
+
+To list all the command based on "Verb" like, get, and set.
+get-command get-*
+To list all commands based on "Noun" like Process, and Services.
+Example:
+
+get-command *-service
+
+PowerShell Help Command
+PowerShell Help Command
+Learning PowerShell commands is very easy when you learn how to use PowerShell help!
+
+For example, if you want to manage a Process, what is the command for it and how to use it?
+
+Step 1: First, you will need to find all Cmdlet's related to Process.
+
+- get-command *-Process
+On viewing the listed Cmdlet's, we can filter the option to get-process.
+
+Step 2: Find out how to use this Cmdlet using PowerShell help.
+
+get-help get-process
+This would display a whole lot of information about the Cmdlet including Syntax, Aliases, etc.
+
+Types of Help in PowerShell
+PowerShell provides four types of Help,
+
+Full help for get-process
+>get-help get-Process -full
+Detailed help for get-process
+>get-help get-Process -Detailed
+Examples of get-process
+>get-help get-Process -Examples
+Online help for get-process
+>get-help get-Process -Online
+
+View all PS help commands
+Command to view all "help" commands
+
+
+get-command *-help                              
+
+Output will be
+
+get-help
+
+update-help
+
+save-help
+
+To run update-help and save-help, Administrative Privilege is required.
+
+Format Commands
+Format Commands in PowerShell are used to Change the Output View based on the specified properties.
+
+Related Cmdlets:
+
+Format-Custom
+
+Format-List
+
+Format-SecureBootUEFI
+
+Format-Table
+
+Format-Wide
+
+Usage:
+
+>Get-Process | Format-Table  ProcessName, id
+>Get-Process | Format-list  ProcessName, id
+Try these commands on your Windows and Ubuntu PowerShell consoles to view the Output.
+
+
+PowerShell Modules
+PowerShell modules are available for number of services. They contain cmdlets, providers, functions, variables, and other types of resources that can be imported as a single unit and reused.
+
+Example Services
+
+Active Directory
+
+DHCP services
+
+Exchange services
+
+SCCM
+
+Azure
+
+Modules can be downloaded from respective sites and installed with Administrative Privilege.
+
+
+PowerShell Module Cmdlets
+Get-Module
+
+Import-Module
+
+New-Module
+
+Remove-Module
+
+Steps to Import Active Directory Module in Windows 7:
+
+Download and Install a suitable RSAT version for Windows 7.
+
+Run the following command "Import-Module ActiveDirectory".
+
+Administrative Privilege is required for performing this.
+
+Variables in PowerShell
+A variable is considered as a unit of memory in which values are stored. In Windows PowerShell, variables are:
+
+Represented by text strings that start with a dollar sign ($) like $a, $process.
+
+Used to store Microsoft .NET Framework objects precisely.
+
+Can comprise a String object or a number object.
+
+Variables in PowerShell aren't environment variables as in cmd.exe
+
+
+Variables Example
+In the command below, $path stores the path of "C:\Windows\System32". get-ChildItem command displays the list of Item present in the given path.
+
+>$path = "C:\Windows\System32"
+>Get-ChildItem -Path $path
+Try these commands on your PowerShell Console.
+
+
+Read-Host Cmdlet
+The Read-Host cmdlet interactively prompts the user to enter a value for the Variable.
+
+For example, the command below prompts the user to enter a name.
+
+
+>$Name=Read-Host "Please enter user name"
+
+If we need to mask the data entered at the prompt, the -assecurestring parameter can be used.
+
+Example to provide the Password securely:
+
+>$Password=Read-Host -assecurestring "Please enter your password"
+On using the -assecurestring parameter, when the user starts entering the password, it will masked with "*".
+
+Variable
+PowerShell contains Pre-Defined variables also
+
+Get-variable - To list out all the variables
+
+Remove-variable - To remove the variable which is created
+
+Try these commands on your Windows Workstation PowerShell console.
+
+
+Write-Host Cmdlet
+The Write-Host cmdlet can be used to write\displays messages on the Windows PowerShell console.
+
+Example
+
+>$numberofcommands=(get-command).count
+>Write-Host "$numberofcommands available in this System"
+foregroundcolor and backgroundcolor are two optional parameters that can be used with Write-Host, to specify a different text and text background colors.
+
+Example:
+
+Write-Host "This is red text on a yellow background" -foregroundcolor red -backgroundcolor yellow
+Try these commands on your Windows Workstation PowerShell Consoles.
+
+Pipeline in PowerShell
+Pipes (|) in PowerShell allow passing the output of one cmdlet as an input to another cmdlet. This helps in performing a series of actions on selected objects easily using a single command.
+
+Now let's look at an example to kill a specific process.
+
+Open a notepad on your system. Now, execute the command below. This should list details of this new process.
+>get-process -Name notepad
+Now let us kill/stop this process.
+>get-process -Name notepad | Stop-Process
+The above command will select the process notepad and stop it.
+
+Operators in PowerShell
+Operators are used to perform mathematical and filtering task
+
+-ne (not equal to)
+
+-lt (less than)
+
+-le (less than or equal to)
+
+-gt (greater than)
+
+-ge (greater than or equal to)
+
+-like (like—a wildcard comparison)
+
+-notlike (not like—a wildcard comparison)
+
+-contains (contains the specified value)
+
+-notcontains (doesn't contain the specified value)
+
+Keys Usage
+Before we get started with core concepts of PowerShell, here are a few helpful tips on Keyboard operations that can make working with PowerShell a breeze.
+
+Left/Right Arrows - Moves the editing cursor left and right
+
+Up/Down Arrows - Moves up and down through the command history
+
+F7 - Pops up command history in a window on the console
+
+Tab - Command completion
+
+Enter get-command -Type Function on your PowerShell console and press Tab. Observe what happens.
+
+Tab simplifies the command usage considerably.
+
+Now, let's look at some commands to see how to use Pipes with other Cmdlets to perform certain common operations.
+
+Where-Object cmdlet can be used to filter Objects in the list based on a given condition.
+
+Example: To filter the process which is consuming more than 20 CPU(S).
+
+
+ Get-Process | Where-Object -FilterScript{$_.cpu –gt 20}
+
+To see this command working, try it out on Windows and Ubuntu Powershell Console.
+
+
+Following command can be used to get a list of services, find the ones that are in stopped status and start them.
+
+
+>get-service bits,winrm |  where-object {$_.status -eq 'stopped'} | start-service
+
+
+The Cmdlet ForEach-Object is used to perform an action on each instance of an object. Syntactically, ForEach-Object is very similar to Where-Object.
+
+Example: To display the free space of each Partition in a Hard Disk (in Bytes)
+
+> Get-WMIObject Win32_LogicalDisk | ForEach-Object {$_.FreeSpace}
+To find the hard disk free space in Gigabytes:
+
+> Get-WMIObject Win32_LogicalDisk | ForEach-Object {$_.FreeSpace/1024/1024/1024}
+Try this on your Windows Workstation PowerShell Console.
+
+
+Pipeline - To Find Specific Properties
+The Select-Object cmdlet chooses specified properties of a set of objects or an object. The Property parameter can be used to mention what needs to be displayed.
+
+Example: To display Process name, Id and CPU seconds.
+
+
+>Get-Process | Select-Object -Property ProcessName, Id, Cpu
+
+To view the output, try this on your Windows and Ubuntu PowerShell Consoles.
+
+
+Select-Object
+The Select-Object cmdlet displays all the properties of particular Object.
+
+Example:
+
+
+>Get-Process -Name chrome | Select-Object -Property *
+
+Try this command on your PowerShell console to view the output.
+
+
+Sort-Object cmdlet sorts the set of Objects according to a particular Property.
+
+Example: To Sort the Process based on Memory.
+
+
+ Get-Process | Sort-Object -Property ProcessName
+
+Integrated Scripting Environment
+Integrated Scripting Environment (ISE) is regarded as a host application for Windows PowerShell and it is GUI.
+
+ISE can be used to run commands and write, test, and debug scripts from a single interface.
+
+Features
+
+Multiline editing
+
+IntelliSense
+
+Visual debugging
+
+Tab completion
+
+Syntax coloring
+
+Selective execution
+
+Context-sensitive help
+
+Simple scripts can be tested in any PowerShell console.
+
+ISE interface can be accessed the same way as Native PowerShell console.
+
+Different ways to start PowerShell:
+
+From the RUN command, type: PowerShell ISE
+
+From cmd.exe, type: PowerShell ISE
+
+Using GUI: Start > All Programs > Accessories > Windows PowerShell > Windows PowerShell ISE (Windows7 and Later versions)
+
+
+Script Using IF - Elseif
+Here is a simple application of If-Elseif block to find the Greater Number.
+
+> if(20 -gt 10)
+ {
+ Write-Host "20 is Greater"
+ }elseif(10 -gt 20)
+ {
+ Write-Host "10 is Greater"
+ }
+Output is 20 is Greater. Try it out on Windows PowerShell ISE Console.
+
+
+Script Using Do-While
+Like in any programming language, Do-While loop in PowerShell performs an action as long as a given condition is satisfied. Here is a script that illustrates the usage of Do While loop.
+
+> do{
+ $N1=$N1+1
+ Write-Host "The Current Variable is $N1"
+ }While($N1 -lt 5)
+
+
+Script Using For-Each
+In this example, For-Each loop counts the total number of users given in the "$name" variable and list the user names.
+
+> $names = "Amy","Bob","Candice","Dick","Eunice","Frank"
+> $count = 0
+> ForEach ($singlename in $names) {
+ $count += 1
+ Write-Host "$singlename"
+ }Write-Host "The total number of names is $count."
+
+To run PowerShell script files PowerShell Execution Policy must be set as "Remotesigned".
+
+Commands to set Execution Policy
+
+
+ Set-ExecutionPolicy RemoteSigned -Force
+
+PowerShell Script File
+
+It contains a bunch of PowerShell commands. These files should be saved with ".PS1" extension.
+
+PS script files can be run on both Native PowerShell or ISE.
+
+To run this command, Administrative Privilege is required.
+
+PS Script File creation
+To find the greater Number:
+
+Type following commands in the notepad
+$a = Read-host "A"
+$b = Read-host "B"
+if ($a -gt $b)
+{
+write-host "A"
+} elseif ($b -gt $a)
+{
+write-host "B"
+} 
+Save as "*.PS1" file in a current working directory and execute
+If the file name is script.ps1 then type as
+
+> .\script.ps1 
+PowerShell console prompts for A and B
+
+If A: 100 and B: 200 then
+
+Output will be B
+
+Error Handling in PowerShell
+It is required to understand the types of errors that can occur during the execution PowerShell commands and Scripts.
+
+Types of Error
+
+Terminating Error - A serious error during execution that halts the command or script completely.
+Examples - Non-existent of cmdlets, syntax errors which prevent a cmdlet from running, or other fatal error.
+
+Non-Terminating Error - A non-serious error that allows execution to continue despite the failure.
+Example - Operational errors such file not found and permissions problems.
+
+Error Action Preference can be used for Non-Terminating errors.
+
+Error Action Preference
+For non-terminating errors, there is the choice to tell PowerShell how to manage these situations.
+
+Error Action Preference allows us to specify the desired behavior for a non-terminating error
+
+Choices for Error Action Preference
+
+SilentlyContinue – Here, Error messages are suppressed, and then execution goes on.
+
+Stop – Forces execution to stop, behaving like a terminating error.
+
+Continue - The default option. Errors will display, and execution will continue.
+
+Inquire – Urge the user for input to check whether to proceed or not.
+
+Ignore – (new in v3) – the error is ignored and not logged to the error stream.
+
+EAP
+Example 1 - For Script
+
+To Set the preference at the script scope to Stop, place the following command at the top of the script file
+
+
+$ErrorActionPreference = "Stop"
+
+Example 2 - For Cmdlets
+
+To set the preference at the cmdlet level to Inquire, error action switch can be added
+
+
+get-childitem "D:\Folder1" -ErrorAction "Inquire"
+
+Try this command on your Windows Workstation to view an effect of "Error Action".
+
+
+
+
+

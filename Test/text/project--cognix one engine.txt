@@ -1,0 +1,20 @@
+starbucks -- customer
+one engine -- tool
+orchestration -- small use cases
+for example -- 
+chennai -- tamil nadu
+orchestrator is a workflow automation s/w that allows adminsitrators to automate the monitoring and deployment of data center resources.
+Connection is a service account(service account has admin rights), by which we can access all the servers which we have access to execute the commands.
+Pull -- fetch details from API
+Push -- used to push details via API
+Database -- fetch from database
+API --- An application programming interface is a connection between computers or between computer programs. It is a type of software interface, offering a service to other pieces of software.
+which is a software intermediary that allows two applications to talk to each other.
+
+Get Record
+Intialize Data
+Decision Process
+End
+
+Copy Existing -- edit
+refer existing -- no edit

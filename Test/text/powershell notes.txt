@@ -1,0 +1,192 @@
+Powershell -- 
+run as admin
+Cmdlets -- 
+set-location c:\ -- set current directory to C:\
+get-childitem -- gives list of directories
+clear-host -- clear the screen
+aliases present i.e. unix,dos commands work too.
+get-alias -- gives list of current aliases
+help -- for help
+get-content
+copy-item
+get-alias -Definition get-process
+--> The help system
+update-help -Force
+get-help
+* -- wildcard
+-- get-help *service*
+get-help get-service -Detailed
+get-help get-service -Examples
+get-help get-service -fullhelp
+get-help get-service -Online
+get-help get-service -showWindow
+select and right click -- right click --> copy paste
+get-service -Name bits
+get-service -Name bits, bfe // [<String[]>] inside ones "[]" allow multiple parameters
+get-service -Name b*
+get-service -Name b*,c*
+[...........] -- optional
+get-service -DisplayName Bit*
+[[........]] -- positional parameters -- you dont have to use the parameter
+get-eventlog -logname system -newest 3 -entrytype error
+-computername dc,s1,s2
+cls ; get-help about_eventlogs
+; -- statement separator
+Pipeline -- Can be broken into several lines to increase readability
+get-service | export-csv -Path c:\service.csv
+import-csv c:\service.csv
+get-process | export-clixml -Path c:\good.xml  //clean line xml
+compare-object -ReferenceObject (import-clixml x:\good.xml)
+get-service | out-file -FilePath C:\tets.txt
+get-content C:\tets.txt
+get-service | ConvertTo-csv 
+get-service | ConvertTo-html - Property name,status | out-file c:\test.html
+-whatif -- tells what it would do but didn't actually do it
+-confirm -- what it will do and confirm 
+get-module -listavailable
+objects -- a thing, that has properties and methods.
+get-process | where handles -gt 900
+get-process | where handles -gt 900 | sort handles
+get-service -name bits | get-member // shows all members
+get-service | select-object -property name, status
+get-childitem
+get-childitem | select -property name, length | sort -Property length -Descending
+where -- assign to a variable -- $_ or $PSITEM
+	-- run the code
+	-- if true we pass the object else throw away
+gps *ss | where {$false}
+gps *ss | where {$true}
+gps | where {$_.handles -ge 1000}
+gps | where handles -ge 1000
+How the pipeline really works --
+1. ByValue
+2. ByPropertyName
+3. Customize it
+4. The Parenthetical -- when all else fails
+get-service | get-member or gm --> which object passed in the pipeline by get-service
+get-process calc | dir
+Get-ADComputer -filter *
+get-adcomputer -filter * | select -property name, @{name='ComputerName';expression={$_.name}}
+-expandproperty --> string
+---> Remoting -- hitting whichever machine you want
+Enable-PSRemoting
+enter-pssession -ComputerName dc
+-- gets into dc computer -- one to one connection
+invoke-command -ComputerNamee dc,s1,s2 {get-eventlog -Logname system -new 3}
+get-windowsfeature
+Install-windowsfeature windowspowershellwebaccess
+get-help *pswa*
+Install-pswawebapplication -usetestcertificate
+get-help *pswa*
+add-pswaauthorizationrule
+get-volume
+Automation -- Secured by default
+Prevents mistakes by unintentional admins and users
+no script execution
+example script -- 
+notepad --> get-servicename bits
+save as -- iloveyou.ps1 in C:/scripts --> all files
+explorer --> find file
+cd .\Scripts
+.\iloveyou.ps1
+error not allowed to run scripts
+new-selfsignedcertificate
+get-psdrive
+dir Cert:\CurrentUser -Recurse - codesigningcert -outvariable a
+$a
+$cert = $a[0]
+get-executionpolicy
+set-executionpolicy "allsigned"
+allsigned -- everything must be signed
+cat .\test.ps1 -- view script
+set-authenticodesignature -certificate $cert -FilePath .\Test.ps1
+cat .\test.ps1
+.\Test.ps1 
+remotesigned -- from the internet to be signed, local script no signature
+--Executable script found in signature block
+variables --> 
+get help *variable*
+$MyVar="Hello"
+$MyVar
+Hello
+$MyVar = Get-service bits
+$MyVar | get-member
+$MyVar.status
+Running
+$MyVar.stop()
+$MyVar.refresh()
+$MyVar.status
+Stopped
+$var=read-host "Enter a computerName"
+Enter a computerName: dc
+$var
+dc
+get-service -name bits -computerame $var
+write-host $var -- destroys everything, no pipeline
+write-output $var -- through the pipeline
+write-warning "Please don't do that"
+write-error "xyz"
+${ This is a test} = 4
+1..5
+1
+2
+3
+4
+5
+1..5>test.txt
+${filepath\test.txt}
+1
+2
+3
+4
+5
+--->
+Automation in scale, remoting
+powershell sessions -- to keep powershell running
+$sessions=New-PSSession -computerName dc
+get-pssession
+icm -session $sessions{$var=2}
+icm -session $sessions{$var}
+2
+Scripting -->
+ISE -- Ctrl R to switch
+ctrl + space -- suggestions
+enter after the pipeline in console -- line continuation
+<#
+.Synopsis
+This is the short explanation
+.Description
+This is the long description
+.Parameter ComputerName
+This is for remote computer
+.Example
+DiskInfo -computerName remote
+This is for a remote computer
+#>
+function get-diskinfo{
+[CmdletBinding()]
+param(
+	[parameter(Mandatory=$True)]
+	[string[]]$computername = 'localhost'
+)
+Get-wmiobject -computername $computername -class win32_logicaldisk -filter "Device='c:'"
+}
+-- parameterized script
+.\ to run file
+Ctrl J  -- snippets
+. .\Diskinfo.ps1 -- retains the memory allocated by the script -- dot sourcing
+.psm1 -- module
+Import module location -Force -verbose
+
+
+--> bracket concepts
+Get-Service [[-Name] <String[]>] -- the inside brackets with string that means that they can take multiple values along with a command -- no parameters really required
+Get-Service [-ComputerName <String[]>] -- outermost brackets --> not necessary to use it (optional)
+if no brackets around it, you've got to put it in and give it a value
+if <> present we can put arguments on the parameter
+Get-Service [[-Name] <String[]>] -- [-Name] is a positional parameter that means if we simply put the value of name without using -name
+-Name --> -xyz is a parameter
+Providers.
+
+
+
